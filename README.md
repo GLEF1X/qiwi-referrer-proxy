@@ -10,9 +10,9 @@ You can
 use [already deployed on `AWS Beanstalk` service](http://referrerproxy-env.eba-cxcmwwm7.us-east-1.elasticbeanstalk.com/proxy/p2p/)
 or deploy it manually using docker. It can handle more than 50k+ requests per second.
 
-#### Endpoints:
+#### Endpoints
 
-| Tables                  |        Params        |                                  Response |
+| Path                  |        Params        |                                  Response |
 |-------------------------|:--------------------:|------------------------------------------:|
 | /proxy/p2p/{identifier} | identifier: bill uid | Redirect to  https://oplata.qiwi.com/form |
 | /healthcheck            |          -           |            HTTP 200 json {"status": "ok"} |
