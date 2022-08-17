@@ -30,5 +30,5 @@ docker pull ghcr.io/glef1x/glqiwiapi-proxy:latest
 Run docker container:
 
 ```bash
-docker run -p 80:80 -e DOMAIN_NAME=yourdomain.com ghcr.io/glef1x/glqiwiapi-proxy:latest
+docker run -p 80:80 -e NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx -e DOMAIN_NAME=yourdomain.com ghcr.io/glef1x/glqiwiapi-proxy:latest
 ```
