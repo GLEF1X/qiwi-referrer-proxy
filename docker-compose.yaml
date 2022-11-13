@@ -10,7 +10,6 @@ services:
       context: .
     container_name: nginx
     environment:
-      - NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
       - DOMAIN_NAME=referrerproxy-env.eba-cxcmwwm7.us-east-1.elasticbeanstalk.com
     healthcheck:
       test: [ "CMD", "curl", "--silent", "--fail", "http://localhost" ]

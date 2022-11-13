@@ -1,3 +1,4 @@
 FROM --platform=$TARGETPLATFORM nginx:1.23-alpine
+ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
 COPY src/nginx-templates/nginx.conf /etc/nginx/templates/nginx.conf.template
 CMD ["nginx", "-g", "daemon off;"]
