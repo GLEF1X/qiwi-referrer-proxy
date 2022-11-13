@@ -1,3 +1,3 @@
-FROM --platform=$BUILDPLATFORM nginx:1.21.6-alpine
+FROM --platform=$BUILDPLATFORM nginx:1.23-alpine
 COPY src/nginx-templates/nginx.conf /etc/nginx/templates/nginx.conf.template
 CMD ["nginx", "-g", "daemon off;"]
