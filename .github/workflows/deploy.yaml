@@ -44,8 +44,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@master
-        with:
-          lfs: 'true'
 
       - name: Generate Deployment Package
         run: zip -r deploy.zip * -x '*.git*'
@@ -72,4 +70,4 @@ jobs:
           environment_name: Referrerproxy-env
           version_label: "Referrerproxy-${{ steps.format-time.outputs.replaced }}"
           region: ${{ secrets.AWS_REGION }}
-          deployment_package: ./referrer/proxy/deploy.zip
+          deployment_package: deploy.zip
