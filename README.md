@@ -12,10 +12,11 @@ or deploy it manually using docker. It can handle more than 50k+ requests per se
 
 #### Endpoints
 
-| Path                  |        Params        |                                  Response |
-|-------------------------|:--------------------:|------------------------------------------:|
-| /proxy/p2p/{identifier} | identifier: bill uid | Redirect to  https://oplata.qiwi.com/form |
-| /healthcheck            |          -           |            HTTP 200 json {"status": "ok"} |
+| Path                         |        Params        |                                  Response |
+|------------------------------|:--------------------:|------------------------------------------:|
+| /proxy/p2p/{identifier}      | identifier: bill uid | Redirect to  https://oplata.qiwi.com/form |
+| /proxy/p2p/bill/{identifier} | identifier: bill uid | Redirect to  https://oplata.qiwi.com/form |
+| /healthcheck                 |          -           |            HTTP 200 json {"status": "ok"} |
 
 
 
