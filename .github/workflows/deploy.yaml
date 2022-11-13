@@ -4,10 +4,40 @@ on:
   push:
     branches:
       - 'master'
+      - 'feature/*'
 
 
 jobs:
-  build:
+  buildAndPushToRegistry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@master
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          platforms: 'linux/arm64,linux/amd64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6'
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@master
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ghcr.io/glef1x/glqiwiapi-proxy:latest
+
+  pushDeploymentPackage:
+    if: "success()"
+    needs: buildAndPushToRegistry
     runs-on: ubuntu-latest
 
     steps:
@@ -15,12 +45,6 @@ jobs:
         uses: actions/checkout@master
         with:
           lfs: 'true'
-
-      - name: Build docker images
-        run: docker build .
-        env:
-          NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
-          DOMAIN_NAME: 'referrerproxy-env.eba-cxcmwwm7.us-east-1.elasticbeanstalk.com'
 
       - name: Generate Deployment Package
         run: zip -r deploy.zip * -x '*.git*'
