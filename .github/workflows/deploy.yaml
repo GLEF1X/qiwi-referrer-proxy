@@ -36,6 +36,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
+          file: "Dockerfile.cross-platform"
           tags: ghcr.io/glef1x/glqiwiapi-proxy:latest
           platforms: 'linux/amd64,linux/arm64/v8,linux/arm/v7,linux/arm/v6,linux/ppc64le,linux/s390x'
 
