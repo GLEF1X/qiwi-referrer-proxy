@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: checkout the repository
         uses: actions/checkout@master
+        with:
+          ref: ${{ github.ref }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -44,6 +46,8 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@master
+        with:
+          ref: ${{ github.ref }}
 
       - name: Generate Deployment Package
         run: zip -r deploy.zip * -x '*.git*'
