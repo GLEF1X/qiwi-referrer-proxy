@@ -5,13 +5,14 @@ on:
     branches:
       - 'master'
       - 'feature/*'
+  workflow_dispatch:
 
 
 jobs:
   buildAndPushToRegistry:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
+      - name: checkout the repository
         uses: actions/checkout@master
 
       - name: Set up QEMU
