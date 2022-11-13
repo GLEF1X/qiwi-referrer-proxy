@@ -37,6 +37,7 @@ jobs:
         with:
           push: true
           tags: ghcr.io/glef1x/glqiwiapi-proxy:latest
+          platforms: 'linux/arm64,linux/amd64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6'
 
   pushDeploymentPackage:
     if: "success()"
