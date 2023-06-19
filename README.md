@@ -6,13 +6,13 @@ Simple and performant proxy server to enrich request with `Referer` header.
 
 ### Usage
 
-You can
-use [already deployed on `AWS Beanstalk` service](http://referrerproxy-env.eba-cxcmwwm7.us-east-1.elasticbeanstalk.com/proxy/p2p/)
+> :warning: **19.06.23: A pre-deployed proxy server is no longer an option. You have to deploy it manually.**
+
+~~You can
+use [already deployed on `AWS Beanstalk` service](http://referrerproxy-env.eba-cxcmwwm7.us-east-1.elasticbeanstalk.com/proxy/p2p/)~~
 or deploy it manually using docker. It can handle more than 50k+ requests per second.
 
 ### Caveats
-
-> :warning: **Not all architectures supported**
 
 Supported architectures:
 
